@@ -6,7 +6,7 @@
 /*   By: ybiloshy <ybiloshy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 21:14:54 by ybiloshy          #+#    #+#             */
-/*   Updated: 2025/08/31 00:08:24 by ybiloshy         ###   ########.fr       */
+/*   Updated: 2025/08/31 00:55:23 by ybiloshy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void *monitor_func(void *arg)
     while (1)
     {
         i = 0;
+		// segfault from here
         while (philos[i])
         {
             pthread_mutex_lock(&philos[i]->data->action);
@@ -182,7 +183,7 @@ int	main(int ac, char **av)
 
 	if (ac < 5 || ac > 6 || wrong_args(ac, av))
 	{
-		printf("you stupid bitch, put right arguments\n");
+		printf("you stupid bitch, put right arguments!\n");
 		return (1);
 	}
 	data = init_data(ft_atoi(av[1]));
